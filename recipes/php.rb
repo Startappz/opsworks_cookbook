@@ -4,7 +4,15 @@
 #
 # Copyright:: 2018, Moayyad Faris, All Rights Reserved.
 
-package "php" do
+
+
+apt_repository 'php7.4' do
+  uri          'ppa:ondrej/php'
+end
+
+apt_update
+
+package "php7.4" do
   action :install
 end
 
@@ -20,28 +28,25 @@ package "php-mysql" do
   action :install
 end
 
+
 apt_package "php-fpm" do
-action :install
+  action :install
 end
 
-apt_package "php7.2-fpm" do
-action :install
+apt_package "php7.4-mbstring" do
+  action :install
 end
 
-apt_package "php7.2-mbstring" do
-action :install
+apt_package "php7.4-zip" do
+  action :install
 end
 
-apt_package "php7.2-zip" do
-action :install
-end
-
-apt_package "php7.2-xml" do
-action :install
+apt_package "php7.4-xml" do
+  action :install
 end
 
 apt_package "imagemagick" do
-action :install
+  action :install
 end
 
 apt_package "php-imagick" do
