@@ -10,7 +10,7 @@ apt_repository 'php7.4' do
   uri          'ppa:ondrej/php'
 end
 
-apt_update
+apt_update 'update'
 
 package "php7.4" do
   action :install
