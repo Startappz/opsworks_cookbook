@@ -16,7 +16,7 @@ package "php7.4" do
   action :install
 end
 
-package "php7.4-pear" do
+package "php-pear" do
   action :install
 end
 
