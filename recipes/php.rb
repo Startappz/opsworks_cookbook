@@ -16,18 +16,21 @@ package "php7.4" do
   action :install
 end
 
-package "php-pear" do
+package "php7.4-pear" do
   action :install
 end
 
-package "php-curl" do
+package "php7.4-curl" do
   action :install
 end
 
-package "php-mysql" do
+package "php7.4-mysql" do
   action :install
 end
 
+apt_package "php7.4-fpm" do
+  action :install
+end
 
 
 apt_package "php7.4-mbstring" do
@@ -54,9 +57,6 @@ apt_package "php7.4-gd" do
   action :install
 end
 
-apt_package "php7.4-fpm" do
-  action :install
-end
 
 
 
