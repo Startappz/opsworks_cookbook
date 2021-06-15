@@ -29,9 +29,6 @@ package "php-mysql" do
 end
 
 
-apt_package "php7.4-fpm" do
-  action :install
-end
 
 apt_package "php7.4-mbstring" do
   action :install
@@ -49,13 +46,18 @@ apt_package "imagemagick" do
   action :install
 end
 
-apt_package "php-imagick" do
+apt_package "php7.4-imagick" do
   action :install
 end
 
-apt_package "php-gd" do
+apt_package "php7.4-gd" do
   action :install
 end
+
+apt_package "php7.4-fpm" do
+  action :install
+end
+
 
 
 # cookbook_file "/etc/php/7.0/cli/php.ini" do
