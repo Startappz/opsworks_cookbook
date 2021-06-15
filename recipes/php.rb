@@ -29,7 +29,7 @@ package "php-mysql" do
 end
 
 
-apt_package "php-fpm" do
+apt_package "php7.4-fpm" do
   action :install
 end
 
