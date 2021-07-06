@@ -112,6 +112,17 @@ execute "enable-ssl" do
 end
 
 
+execute "disable php7.2" do
+  command "a2dismod php7.2"
+  action :run
+end
+
+
+execute "enable php7.4" do
+  command "a2enmod php7.4"
+  action :run
+end
+
 Chef::Log.info("Create Virtual Hosts Files......")
 #Virtual Hosts Files
 search('aws_opsworks_app', 'deploy:true').each do |app|
