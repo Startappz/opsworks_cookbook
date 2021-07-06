@@ -113,10 +113,6 @@ end
 
 
 
-execute "enable php7.4" do
-  command "a2enmod php7.4"
-  action :run
-end
 
 Chef::Log.info("Create Virtual Hosts Files......")
 #Virtual Hosts Files
