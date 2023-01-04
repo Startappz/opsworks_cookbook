@@ -87,7 +87,10 @@ search('aws_opsworks_app', 'deploy:true').each do |app|
      
       :google_recaptcha_key_invisible    => (deploy[:google][:recaptcha_key_invisible] rescue nil),
       :google_recaptcha_secret_key_invisible    => (deploy[:google][:recaptcha_secret_key_invisible] rescue nil),
-
+      
+      :google_recaptcha_key_v3    => (deploy[:google][:recaptcha_key_v3] rescue nil),
+      :google_recaptcha_secret_key_v3    => (deploy[:google][:recaptcha_secret_key_v3] rescue nil),
+     
       # Domain
       :domain           => (app[:domains].first))
   end
