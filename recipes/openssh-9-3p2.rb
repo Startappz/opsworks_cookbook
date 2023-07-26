@@ -31,13 +31,13 @@ execute 'Set group sys & mode 700 for /var/lib/sshd directory' do
     cwd '/tmp/openssh-9.3p2'
 end
 
-execute 'Add group with GID 50 & name sshd' do
-    command 'groupadd -g 50 sshd'
-end
+# execute 'Add group with GID 50 & name sshd' do
+#     command 'groupadd -g 50 sshd'
+# end
 
-execute 'Add user with UID 50, name sshd, with group sshd GID 50 & home-dir /var/lib/sshd' do
-    command "useradd  -c 'sshd PrivSep' -d /var/lib/sshd -g sshd -s /bin/false -u 50 sshd"
-end
+# execute 'Add user with UID 50, name sshd, with group sshd GID 50 & home-dir /var/lib/sshd' do
+#     command "useradd  -c 'sshd PrivSep' -d /var/lib/sshd -g sshd -s /bin/false -u 50 sshd"
+# end
 
 execute 'Run configure file' do
     command './configure --prefix=/usr --sysconfdir=/etc/ssh --with-privsep-path=/var/lib/sshd --with-default-path=/usr/bin --with-superuser-path=/usr/sbin:/usr/bin --with-pid-dir=/run'
