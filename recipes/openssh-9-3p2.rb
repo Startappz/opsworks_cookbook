@@ -26,51 +26,51 @@ execute 'Extract openssh-9.3p2.tar.gz' do
     cwd '/tmp/'
 end
 
-execute 'Set group sys & mode 700 for /var/lib/sshd directory'
+execute 'Set group sys & mode 700 for /var/lib/sshd directory' do
     command 'install -v -g sys -m700 -d /var/lib/sshd'
     cwd '/tmp/openssh-9.3p2'
 end
 
-execute 'Add group with GID 50 & name sshd'
+execute 'Add group with GID 50 & name sshd' do
     command 'groupadd -g 50 sshd'
 end
 
-execute 'Add user with UID 50, name sshd, with group sshd GID 50 & home-dir /var/lib/sshd'
+execute 'Add user with UID 50, name sshd, with group sshd GID 50 & home-dir /var/lib/sshd' do
     command "useradd  -c 'sshd PrivSep' -d /var/lib/sshd -g sshd -s /bin/false -u 50 sshd"
 end
 
-execute 'Run configure file'
+execute 'Run configure file' do
     command './configure --prefix=/usr --sysconfdir=/etc/ssh --with-privsep-path=/var/lib/sshd --with-default-path=/usr/bin --with-superuser-path=/usr/sbin:/usr/bin --with-pid-dir=/run'
     cwd '/tmp/openssh-9.3p2'
 end
 
-execute 'Run make'
+execute 'Run make' do
     command 'make'
     cwd '/tmp/openssh-9.3p2'
 end
 
-execute 'Run make install'
+execute 'Run make install' do
     command 'make install'
     cwd '/tmp/openssh-9.3p2'
 end
 
-execute 'Set mode 755 for contrib/ssh-copy-id & /usr/bin '
+execute 'Set mode 755 for contrib/ssh-copy-id & /usr/bin' do
     command 'install -v -m755    contrib/ssh-copy-id /usr/bin'
     cwd '/tmp/openssh-9.3p2'
 end
 
-execute 'Set mode 644 contrib/ssh-copy-id.1 & /usr/share/man/man1'
-    command 'install -v -m644    contrib/ssh-copy-id.1 /usr/share/man/man1'
+execute 'Set mode 644 contrib/ssh-copy-id.1 & /usr/share/man/man1' do
+    command 'install -v -m644 contrib/ssh-copy-id.1 /usr/share/man/man1'
     cwd '/tmp/openssh-9.3p2'
 end
 
-execute 'Set mode 755 /usr/share/doc/openssh-9.3p2'
+execute 'Set mode 755 /usr/share/doc/openssh-9.3p2' do
     command 'install -v -m755 -d /usr/share/doc/openssh-9.3p2'
     cwd '/tmp/openssh-9.3p2'
 end
 
-execute 'Set mode 644 for INSTALL, LICENCE, OVERVIEW, README* && /usr/share/doc/openssh-9.3p2'
-    command 'install -v -m644    INSTALL LICENCE OVERVIEW README* /usr/share/doc/openssh-9.3p2'
+execute 'Set mode 644 for INSTALL, LICENCE, OVERVIEW, README* && /usr/share/doc/openssh-9.3p2' do
+    command 'install -v -m644 INSTALL LICENCE OVERVIEW README* /usr/share/doc/openssh-9.3p2'
     cwd '/tmp/openssh-9.3p2'
 end
 
