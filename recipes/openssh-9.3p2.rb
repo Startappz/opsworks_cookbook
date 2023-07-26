@@ -36,7 +36,7 @@ execute 'Add group with GID 50 & name sshd'
 end
 
 execute 'Add user with UID 50, name sshd, with group sshd GID 50 & home-dir /var/lib/sshd'
-    command 'useradd  -c 'sshd PrivSep' -d /var/lib/sshd -g sshd -s /bin/false -u 50 sshd'
+    command "useradd  -c 'sshd PrivSep' -d /var/lib/sshd -g sshd -s /bin/false -u 50 sshd"
 end
 
 execute 'Run configure file'
