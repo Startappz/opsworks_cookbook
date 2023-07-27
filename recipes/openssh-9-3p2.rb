@@ -75,7 +75,7 @@ execute 'Set mode 644 for INSTALL, LICENCE, OVERVIEW, README* && /usr/share/doc/
 end
 
 execute 'restart sshd' do
-    command 'systemctl restart ssh'
+    command 'systemctl reload ssh'
 end
 
 
