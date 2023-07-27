@@ -40,7 +40,7 @@ end
 # end
 
 execute 'Run configure file' do
-    command './configure --prefix=/usr --sysconfdir=/etc/ssh --with-privsep-path=/var/lib/sshd --with-default-path=/usr/bin --with-superuser-path=/usr/sbin:/usr/bin --with-pid-dir=/run'
+    command './configure --with-pam --prefix=/usr --sysconfdir=/etc/ssh --with-privsep-path=/var/lib/sshd --with-default-path=/usr/bin --with-superuser-path=/usr/sbin:/usr/bin --with-pid-dir=/run'
     cwd '/tmp/openssh-9.3p2'
 end
 
@@ -72,6 +72,10 @@ end
 execute 'Set mode 644 for INSTALL, LICENCE, OVERVIEW, README* && /usr/share/doc/openssh-9.3p2' do
     command 'install -v -m644 INSTALL LICENCE OVERVIEW README* /usr/share/doc/openssh-9.3p2'
     cwd '/tmp/openssh-9.3p2'
+end
+
+execute 'restart sshd' do
+    command 'service ssh restart'
 end
 
 
