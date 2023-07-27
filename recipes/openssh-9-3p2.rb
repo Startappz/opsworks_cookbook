@@ -74,9 +74,5 @@ execute 'Set mode 644 for INSTALL, LICENCE, OVERVIEW, README* && /usr/share/doc/
     cwd '/tmp/openssh-9.3p2'
 end
 
-execute 'restart sshd' do
-    command 'service ssh restart'
-end
-
 
 Chef::Log.info("Finished OpenSSH v9.3p2 Installation...")
