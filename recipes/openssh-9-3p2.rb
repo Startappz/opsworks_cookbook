@@ -10,7 +10,7 @@
 Chef::Log.info("Start installing OpenSSH v9.3p2...")
 
 Chef::Log.info("Install Openssh v9.3p2 dependencies")
-package ['wget', 'gcc', 'zlib1g-dev', 'libssl-dev', 'libssl-doc', 'make'] do
+package ['wget', 'gcc', 'zlib1g-dev', 'libssl-dev', 'libssl-doc', 'make', 'libpam0g-dev'] do
     action :install
 end
 
